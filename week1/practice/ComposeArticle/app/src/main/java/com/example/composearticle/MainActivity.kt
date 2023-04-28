@@ -29,9 +29,7 @@ fun ComposeArticleApp() {
 @Composable
 private fun ArticleCard(modifier: Modifier = Modifier) {
     Column(
-        modifier = Modifier.fillMaxSize(),
-//        horizontalAlignment = Alignment.CenterHorizontally,
-//        verticalArrangement = Arrangement.Center
+        modifier = Modifier.fillMaxSize()
     ) {
         Image(
             painter = painterResource(id = R.drawable.bg_compose_background),
