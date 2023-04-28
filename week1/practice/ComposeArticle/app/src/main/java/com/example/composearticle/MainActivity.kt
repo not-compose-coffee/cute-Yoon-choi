@@ -3,11 +3,12 @@ package com.example.composearticle
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -29,9 +30,14 @@ fun ComposeArticleApp() {
 private fun ArticleCard(modifier: Modifier = Modifier) {
     Column(
         modifier = Modifier.fillMaxSize(),
-        horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center
+//        horizontalAlignment = Alignment.CenterHorizontally,
+//        verticalArrangement = Arrangement.Center
     ) {
+        Image(
+            painter = painterResource(id = R.drawable.bg_compose_background),
+            contentDescription = "image"
+        )
+        Spacer(modifier = Modifier.fillMaxHeight(0.05f))
         Text(
             stringResource(R.string.title_jetpack_compose_tutorial),
             fontSize = 24.sp,
