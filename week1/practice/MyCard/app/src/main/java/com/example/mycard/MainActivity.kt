@@ -5,12 +5,14 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
+import androidx.compose.material.Divider
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -47,19 +49,22 @@ fun MyCardApp() {
     ) {
         MyProfile()
         Column(
-            modifier = Modifier.padding(40.dp),
-            verticalArrangement = Arrangement.Center
+            modifier = Modifier.padding(top = 160.dp),
+            verticalArrangement = Arrangement.Center,
         ) {
+            Divider(color = Color.Black, thickness = 1.dp)
             MycardText(
                 icon = painterResource(id = R.drawable.ic_phone_24), description = stringResource(
                     id = R.string.phone_num
                 )
             )
+            Divider(color = Color.Black, thickness = 1.dp)
             MycardText(
                 icon = painterResource(id = R.drawable.ic_share_24), description = stringResource(
                     id = R.string.android_developer
                 )
             )
+            Divider(color = Color.Black, thickness = 1.dp)
             MycardText(
                 icon = painterResource(id = R.drawable.ic_mail_24), description = stringResource(
                     id = R.string.my_email
@@ -95,7 +100,11 @@ fun MyProfile() {
 
 @Composable
 fun MycardText(icon: Painter, description: String, modifier: Modifier = Modifier) {
-    Row {
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(horizontal = 30.dp, vertical = 5.dp)
+    ) {
         Image(
             painter = icon,
             contentDescription = description,
@@ -103,6 +112,7 @@ fun MycardText(icon: Painter, description: String, modifier: Modifier = Modifier
         Text(description, fontSize = 20.sp, modifier = modifier.padding(start = 30.dp))
     }
     Spacer(modifier = Modifier.padding(top = 10.dp))
+//    Divider(color = Color.Black, thickness = 1.dp)
 }
 
 @Preview(showBackground = true)
