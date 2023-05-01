@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Divider
 import androidx.compose.material.MaterialTheme
@@ -14,6 +15,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
@@ -29,7 +31,7 @@ class MainActivity : ComponentActivity() {
             MyCardTheme() {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colors.background
+                    color = MaterialTheme.colors.background,
                 ) {
                     MyCardApp()
                 }
@@ -43,7 +45,8 @@ fun MyCardApp() {
     Column(
         modifier = Modifier
             .fillMaxHeight()
-            .fillMaxWidth(),
+            .fillMaxWidth()
+            .background(colorResource(id = R.color.dark_blue)),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
@@ -88,12 +91,14 @@ fun MyProfile() {
         Text(
             text = stringResource(id = R.string.my_name),
             fontSize = 50.sp,
-            textAlign = TextAlign.Center
+            textAlign = TextAlign.Center,
+            color = colorResource(id = R.color.white)
         )
         Text(
             text = stringResource(id = R.string.android_developer),
             fontSize = 10.sp,
-            textAlign = TextAlign.Center
+            textAlign = TextAlign.Center,
+            color = colorResource(id = R.color.white)
         )
     }
 }
@@ -109,7 +114,12 @@ fun MycardText(icon: Painter, description: String, modifier: Modifier = Modifier
             painter = icon,
             contentDescription = description,
         )
-        Text(description, fontSize = 20.sp, modifier = modifier.padding(start = 30.dp))
+        Text(
+            description,
+            fontSize = 20.sp,
+            modifier = modifier.padding(start = 30.dp),
+            color = colorResource(id = R.color.white)
+        )
     }
     Spacer(modifier = Modifier.padding(top = 10.dp))
 //    Divider(color = Color.Black, thickness = 1.dp)
